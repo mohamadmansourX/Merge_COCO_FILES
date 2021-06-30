@@ -1,2 +1,3 @@
 # Merge_COCO_FILES
-merging coco files
+
+`python merge.py json1.json json2.json OUTPU_JSON.json`
