@@ -12,4 +12,5 @@
 
 
 Json1 and Json2 are the two COCO files needed to merge.
+
 OUTPU_JSON is the output file for the combined results
