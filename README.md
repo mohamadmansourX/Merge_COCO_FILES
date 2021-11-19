@@ -12,7 +12,7 @@ Simply:
 2- cd Merge_COCO_FILES
 ```
 
-## COCO File Merge Usage
+## COCO Files Merge Usage
 ```
 python merge.py Json1.json Json2.json OUTPU_JSON.json
 ```
@@ -25,7 +25,7 @@ OUTPU_JSON is the output file for the combined results
 *Note: the script will do the necessary checks as well (duplicate filenames, ....)*
 
 
-## COCO File class 
+## COCO File Class Edit Usage
 
 ```
 python INPUT_JSON.json OUTPU_JSON.json Label1 Label2...
