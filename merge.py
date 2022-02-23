@@ -124,7 +124,9 @@ def combine(tt1,tt2,output_file):
         test['images'].append(i)
     for i in d2['annotations']:
         test['annotations'].append(i)
-    test['categories']=d2['categories']
+    for curr_cat in d2['categories'] :
+            if curr_cat not in test['categories'] :
+                test['categories'].append(curr_cat)
     files_check_classes_temp={}
     pbar = tqdm(total=len(test['images']))
     for i,j in enumerate(test['images']):
