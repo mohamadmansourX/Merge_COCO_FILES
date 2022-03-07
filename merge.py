@@ -49,7 +49,30 @@ def combine(tt1,tt2,output_file):
     temp2=[cc['file_name'] for cc in d2['images']]
     for i in temp:
         assert not(i in temp2), "Duplicate filenames detected between the two files! @" + i
-        
+    
+
+    # Check if both files have the categories dict using only the value and id to compare
+    d1_categories_names = {c['name']: c['id'] for c in d1['categories']}
+    d2_categories_names = {c['name']: c['id'] for c in d2['categories']}
+    
+    for c in d1_categories_names:
+        # Check if the category name exists in the second file
+        if c in d2_categories_names:
+            # Check if the category id is the same
+            if d1_categories_names[c] != d2_categories_names[c]:
+                assert False, 'Category name: {}, id: {} in file 1 and {} in file 2'.format(c, d1_categories_names[c], d2_categories_names[c])
+        else:
+            assert False, 'Category name: {} in file 1 does not exist in file 2'.format(c)
+    
+    for c in d2_categories_names:
+        if c in d1_categories_names:
+            if d1_categories_names[c] != d2_categories_names[c]:
+                assert False, 'Category name: {}, id: {} in file 1 and {} in file 2'.format(c, d1_categories_names[c], d2_categories_names[c])
+        else:
+            assert False, 'Category name: {} in file 2 does not exist in file 1'.format(c)
+
+
+
     files_check_classes={}
     for i,j in enumerate(d1['images']):
         for ii,jj in enumerate(d1['annotations']):
@@ -145,9 +168,22 @@ def combine(tt1,tt2,output_file):
 
 
 if __name__ == '__main__':
+    if "-h" in sys.argv:
+        print('''\nUsage: python {} <path_to_file_1> <path_to_file_2> <output_file>
+
+        Requirements:
+        1- There shouldn't be duplicate image_names in the two files
+        2- The two files should have the same categories (same names and ids)
+        '''.format(sys.argv[0]))
+        exit(1)
     if len(sys.argv) <= 3:
-        print('3 arguments are need.')
-        print('Usage: %s json1.json json2.json OUTPU_JSON.json'%(sys.argv[0]))
+        print('\n3 arguments are needed!!')
+        print('''\nUsage: python {} <path_to_file_1> <path_to_file_2> <output_file>
+
+        Requirements:
+        1- There shouldn't be duplicate image_names in the two files
+        2- The two files should have the same categories (same names and ids)
+        '''.format(sys.argv[0]))
         exit(1)
     combine(sys.argv[1],sys.argv[2],sys.argv[3])
-    print("\n\nThanks for using our service :p !!")
+    print("\n\nSuccessfully merged the two files ({} , {}) into {}".format(sys.argv[1],sys.argv[2],sys.argv[3]))
