@@ -1,0 +1,8 @@
+COCO-merger/input/
+COCO-merger/output/
+dist
+build
+COCO_merger/input/
+COCO_merger/output/
+COCO_merger.egg-info/
+.idea/
