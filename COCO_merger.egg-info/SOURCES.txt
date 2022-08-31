@@ -1,0 +1,10 @@
+LICENSE
+README.md
+setup.py
+COCO_merger/__init__.py
+COCO_merger/edit_coco_classes.py
+COCO_merger/merge.py
+COCO_merger.egg-info/PKG-INFO
+COCO_merger.egg-info/SOURCES.txt
+COCO_merger.egg-info/dependency_links.txt
+COCO_merger.egg-info/top_level.txt

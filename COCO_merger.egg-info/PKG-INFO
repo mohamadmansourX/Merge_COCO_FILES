@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: COCO-merger
+Version: 0.0.1
+Summary: Python package which aims to merge 2 COCO .json files
+Home-page: https://github.com/mohamadmansourX/Merge_COCO_FILES
+Author: Mohamad Mansour & Tristan Cotte
+Author-email: moemansour03@gmail.com
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+License-File: LICENSE
+
+This package is intended for data scientist who wants to merge several COCO datasets before training a new model

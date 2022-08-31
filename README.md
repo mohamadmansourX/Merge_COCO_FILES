@@ -1,27 +1,34 @@
 # Merge_COCO_FILES
 
-Simple yet fully working tool
+This package is intended for data scientist who wants to merge several COCO datasets before 
+training a new model.
 
-## Requirments
+## Requirements
 `python==3.x`
 
 ## Installation
+
+Simply set up a Python environment and type :
 ```
-Simply:
-1- git clone https://github.com/mohamadmansourX/Merge_COCO_FILES.git
-2- cd Merge_COCO_FILES
+pip install COCO_merger
 ```
 
 ## COCO Files Merge Usage
 ```
-python merge.py Json1.json Json2.json OUTPU_JSON.json
+python -m COCO_merger.merge --src Json1.json Json2.json --out OUTPUT_JSON.json
 ```
 
-Json1 and Json2 are the two COCO files to be merged.
+### Argument parser
+```
+usage: merge.py [-h] --src SRC SRC --out OUT
 
-OUTPU_JSON is the output file for the combined results
+Merge two annotation files to one file
 
-<br>
+optional arguments:
+  -h, --help     show this help message and exit
+  --src SRC SRC  Path of two annotation files to merge
+  --out OUT      Path of the output annotation file
+```
 
 **Note:**
 
@@ -43,10 +50,6 @@ Example of Cat category existing in both files but with different ids:
 <code>AssertionError: Category name: Cat, id: 1 in file 1 and 2 in file 2</code>
 <br>
 
-## COCO File Class Edit Usage
-
-```
-python INPUT_JSON.json OUTPU_JSON.json Label1 Label2...
-```
+<hr>
 
 *Note: the script will do the necessary checks as well (duplicate filenames, ....)*
