@@ -1,5 +1,4 @@
-# Merge_COCO_FILES
-
+# Merge .json COCO files
 This package is intended for data scientist who wants to merge several COCO datasets before 
 training a new model.
 
